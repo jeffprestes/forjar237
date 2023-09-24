@@ -1,3 +1,11 @@
+# Ambiente de Desenvolvimento
+
+## VSCode
+
+### Plugin para Solidity
+
+[https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
+
 ## Foundry
 
 **Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
@@ -12,6 +20,10 @@ Foundry consists of:
 ## Documentation
 
 https://book.getfoundry.sh/
+
+## Instalação do Foundry Forge no Windows
+
+https://dev.to/oleanji/installing-foundry-toolchain-on-windows-27ml
 
 ## Project creation
 
@@ -47,6 +59,23 @@ $ forge fmt
 $ forge snapshot
 ```
 
+### Import external Libs
+
+forge install é o comando usado para instalar dependencias/bibliotecas. Use forge install  {{github_username}}/{{repo_name}} da URL do github do projeto, por exemplo:
+
+```shell
+$ forge install Openzeppelin/openzeppelin-contracts
+```
+
+IMPORTANTE: seu projeto não pode ter nada pendente de commitar pois por baixo dos panos o forge irá instalar submodulos git no seu projeto.
+
+Depois, para permitir que o plugin de Solidity do VSCode detecte corretamente a biblioteca, faça o remapping. Exemplo:
+
+```shell
+$ forge remappings > remappings.txt
+```
+
+Ou execute o forge remappings, pegue o conteúdo que sair no terminal e gere o arquivo remappings.txt manualmente e salve na raiz do projeto.
 
 ### Anvil
 
