@@ -17,15 +17,17 @@ Foundry consists of:
 -   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
 -   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
 
-## Documentation
+### Documentation
 
 https://book.getfoundry.sh/
 
-## Instalação do Foundry Forge no Windows
+### Instalação do Foundry Forge no Windows
 
 https://dev.to/oleanji/installing-foundry-toolchain-on-windows-27ml
 
-## Project creation
+### Criação do projeto Forge
+
+Depois de fazer o clone do repositório remoto na maquina local de desenvolvimento, execute:
 
 ```shell
 $ forge init --force
@@ -33,7 +35,7 @@ $ forge init --force
 
 Definir versão solidity no foundry.toml
 
-## Usage
+### Uso
 
 ### Build
 
@@ -77,12 +79,6 @@ $ forge remappings > remappings.txt
 
 Ou execute o forge remappings, pegue o conteúdo que sair no terminal e gere o arquivo remappings.txt manualmente e salve na raiz do projeto.
 
-### Anvil
-
-```shell
-$ anvil
-```
-
 ### Deploy
 
 ```shell
@@ -90,7 +86,11 @@ $ forge create --verify --etherscan-api-key $ETHERSCAN_API_KEY --rpc-url $RPC_UR
 ```
 
 ```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+$ forge create --verify --etherscan-api-key $ETHERSCAN_API_KEY --rpc-url $RPC_URL --private-key $PRIVATE_KEY Exercicio
+```
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url $RPC_URL  --private-key <your_private_key>
 ```
 
 ### Cast
@@ -100,7 +100,28 @@ $ cast <subcommand>
 ```
 
 ```shell
-cast abi-encode "constructor(string,string,uint8,uint256)"
+$ cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url $RPC_URL
+```
+
+```shell
+$ cast send YOUR_CONTRACT_ADDRESS "setNumber(uint256)" 10 --rpc-url $RPC_URL  --private-key $PRIVATE_KEY
+```
+
+
+```shell
+$ cast abi-encode "constructor(string,string,uint8,uint256)"
+```
+
+```shell
+$ cast --from-wei 300000000000000000
+```
+
+```shell
+$ cast --from-ascii '<str>'
+```
+
+```shell
+$ cast interface  < address > --etherscan-api-key $ETHERSCAN_API_KEY --chain sepolia
 ```
 
 ### Help
@@ -110,3 +131,16 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+
+## Backend: node + ethers.js
+
+### Iniciando projeto
+
+Assumindo que o projeto de backend ficará dentro do subdiretório `backend`...
+
+```shell
+$ yarn init
+$ yarn add dotenv ethers
+```
+
+

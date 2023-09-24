@@ -1,0 +1,14 @@
+{
+  "name": "exercicio-bradesco",
+  "version": "0.0.1",
+  "description": "Backend de exercicio",
+  "main": "index.js",
+  "scripts": { 
+    "start": "node ."
+  },
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ethers": "^6.7.1"
+  }
+}
