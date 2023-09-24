@@ -143,4 +143,7 @@ $ yarn init
 $ yarn add dotenv ethers
 ```
 
+Gerar ABI do contrato ExercicioToken no Remix, criar o arquivo token-abi.json e salvar o conteúdo ABI neste arquivo.
+
+
 
