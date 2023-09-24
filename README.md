@@ -13,6 +13,14 @@ Foundry consists of:
 
 https://book.getfoundry.sh/
 
+## Project creation
+
+```shell
+$ forge init --force
+```
+
+Definir versão solidity no foundry.toml
+
 ## Usage
 
 ### Build
@@ -39,6 +47,7 @@ $ forge fmt
 $ forge snapshot
 ```
 
+
 ### Anvil
 
 ```shell
@@ -48,6 +57,10 @@ $ anvil
 ### Deploy
 
 ```shell
+$ forge create --verify --etherscan-api-key $ETHERSCAN_API_KEY --rpc-url $RPC_URL --private-key $PRIVATE_KEY src/Counter.sol:Storage
+```
+
+```shell
 $ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
 ```
 
@@ -55,6 +68,10 @@ $ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --pri
 
 ```shell
 $ cast <subcommand>
+```
+
+```shell
+cast abi-encode "constructor(string,string,uint8,uint256)"
 ```
 
 ### Help
