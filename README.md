@@ -145,5 +145,10 @@ $ yarn add dotenv ethers
 
 Gerar ABI do contrato ExercicioToken no Remix, criar o arquivo token-abi.json e salvar o conteúdo ABI neste arquivo.
 
+Depois seguir as instruções no arquivo index.js
 
+## Frontend: ethers.js + Metamask
 
+Assumindo que o projeto de backend ficará dentro do subdiretório `frontend`...
+
+Copiar o arquivo token-abi.json (ABI do contrato ExercicioToken) do diretório do `backend`, eles serão o mesmo pois apontaremos para o mesmo contrato.
