@@ -151,4 +151,4 @@ Depois seguir as instruções no arquivo index.js
 
 Assumindo que o projeto de backend ficará dentro do subdiretório `frontend`...
 
-Copiar o arquivo token-abi.json (ABI do contrato ExercicioToken) do diretório do `backend`, eles serão o mesmo pois apontaremos para o mesmo contrato.
+Copiar o arquivo token-abi.json (ABI do contrato ExercicioToken) do diretório do `backend`, eles serão o mesmo pois apontaremos para o mesmo contrato. Daí renomear para token-abi.js e colocar o conteúdo dentro de uma constante chamada `abi`.
