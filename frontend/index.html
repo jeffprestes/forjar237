@@ -44,7 +44,7 @@
                 required
                 name="formTo"
                 id="formTo"
-                style="width: 400px"
+                style="width: 500px"
               />
               <br /><br />
               <label for="formAmount">Quantidade:</label>
@@ -72,14 +72,14 @@
                 id="formTo"
                 size="100"
                 maxlength="45"
-                style="width: 400px"
+                style="width: 500px"
               />
               <br /><br />
               <label for="formAmount">Quantidade:</label>
               <br /><br />
               <input type="number" placeholder="10000" required name="formAmount" id="formAmount" />
               <br /><br />
-              <input type="button" value="Mintar (gerar) Token" onclick="mintar()" />
+              <input id="btnMintar" type="button" value="Mintar (gerar) Token" onclick="mintar()" />
             </form>
           </div>
         </section>
@@ -172,25 +172,35 @@
       }
     </script>
     <script>
+      async function atualizaTotalSupply() {
+        const tokenTotalSupplyObj = await contract.totalSupply();
+        const tokenTotalSupply = document.getElementById("tokenTotalSupply");
+        tokenTotalSupply.innerHTML = tokenTotalSupplyObj;
+      }
+
       async function consultar() {
         event.preventDefault();
         const form = document.getElementById("formSaldo");
-        alert("Aguarde a consulta ser processada pelo Metamask");
+        alert("Aguarde a consulta ser processada pelo Provedor");
         const saldo = await contract.balanceOf(form.formTo.value);
         form.formAmount.value = saldo;
       }
 
       async function mintar() {
         event.preventDefault();
-        const form = document.getElementById("formMint");
+        const btn = document.getElementById("btnMintar");
+        btn.value = "Processando...";
         alert("Aguarde e confirme a transação no Metamask");
+        const form = document.getElementById("formMint");
         const tx = await contract.mint(form.formTo.value, form.formAmount.value);
         console.log("tx enviada: ", tx);
-        alert("Transação enviada a Blockchain. Aguarde.\nTx ID:" + tx.hash);
+        alert("Transação enviada a Blockchain. Aguarde.\nID: " + tx.hash);
         const txReceipt = await tx.wait();
         console.log("txReceipt: ", txReceipt);
         if (txReceipt.status === 1) {
-          alert("Parabéns! Mais tokens gerados gerado");
+          await atualizaTotalSupply();
+          alert("Parabéns! Mais tokens gerados.");
+          btn.value = "Mintar (gerar) Token";
           form.reset();
         }
       }
