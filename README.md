@@ -132,6 +132,26 @@ $ anvil --help
 $ cast --help
 ```
 
+## Analisador estatico Slither
+
+Instale a ferramenta [**slither**](https://github.com/crytic/slither#how-to-install)
+
+Crie o arquivo *slither.config.json*
+
+Com o conteúdo:
+
+```json
+{
+  "filter_paths": "lib"
+}
+```
+
+E execute:
+
+```shell
+slither .
+```
+
 ## Backend: node + ethers.js
 
 ### Iniciando projeto
