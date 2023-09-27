@@ -42,7 +42,7 @@ Definir versão solidity no foundry.toml
 ```shell
 $ forge build
 ```
-
+ 
 ### Test
 
 ```shell
@@ -92,6 +92,8 @@ $ forge create --verify --etherscan-api-key $ETHERSCAN_API_KEY --rpc-url $RPC_UR
 ```shell
 $ forge script script/Counter.s.sol:CounterScript --rpc-url $RPC_URL  --private-key <your_private_key>
 ```
+
+forge script script/Token.s.sol:TokenScript --rpc-url $RPC_URL --private-key $PRIVATE_KEY --broadcast -vvvv 
 
 ### Cast
 
